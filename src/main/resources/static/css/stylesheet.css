@@ -1,0 +1,65 @@
+.text-white {
+	display: inline-block;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.row{
+	margin-left:20px;
+	margin-right:20px;
+}
+.collapse .navbar-collapse{
+	flex-basis: initial;	
+}
+.navbar .navbar-brand{
+	padding: 0;
+	margin: 0;
+}
+.navbar .navbar-brand img {
+  height: 50px;
+}
+h1 {
+    color: #78ab46;
+}
+
+footer {
+    position: fixed;
+    height: 50px;
+    bottom: 0;
+    width: 100%;
+    background-color: #ccc
+}
+
+footer p {
+    padding: 15px;
+}
+
+p{
+	text-align: center;
+	color:blue;
+}
+a{
+	margin: 20px;
+}
+
+table{
+	margin: 20px;
+}
+.mb-2{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+html,
+body {
+  height: 100%;
+}
+
+.above{
+	padding-left: 10%;
+}
+.btn-success{
+	position:relative;
+	left: 75%;
+	bottom: 25%;
+
+}

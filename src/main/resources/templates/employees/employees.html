@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}" 
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="utf-8">
+
+<title>Employee List</title>
+<link rel="stylesheet" th:href="@{/css/stylesheet.css}"/>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+<div class="row above">
+	<div class="col">
+		<a sec:authorize="hasRole('ADMIN')"  class="btn btn-success" th:href="@{/employees/addEmployeeForm}">Add Employee</a>
+	</div>
+</div>
+	<table class="table table-striped table-bordered">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">First Name</th>
+				<th scope="col">Last Name</th>
+				<th scope="col">Email</th>
+				<th sec:authorize="hasRole('ADMIN')" scope="col">Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="tempEmployee : ${employees}">
+				<td th:text="${tempEmployee.firstName}"/>
+				<td th:text="${tempEmployee.lastName}" />
+				<td th:text="${tempEmployee.email}" />
+				<td sec:authorize="hasRole('ADMIN')" ><a class="btn btn-warning btn-sm mb-2" th:href="@{/employees/update(employeeId=${tempEmployee.id})}">Update</a><a class="btn btn-danger btn-sm mb-2" th:href="@{/employees/delete/__${tempEmployee.id}__}" onclick="myFunction()">Delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+<script>
+function myFunction(){
+confirm('Are you sure you want to delete this employee?');}</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+</head>
+<body>
+<th:block th:fragment="header">
+    <nav class="navbar navbar-dark bg-dark  navbar-expand-lg">
+		<div class="container-fluid">
+            <div class="row">
+                <a class="navbar-brand" th:href="@{/}">
+                    <img th:src="@{/images/computer.png}" alt="logo"/>
+                </a>
+            </div>
+            <div class="container-fluid">
+            <span class="text-white" sec:authorize="isAuthenticated()">
+                    | Logged user: <span sec:authentication="name"></span> |
+                    Roles: <span sec:authentication="principal.authorities"></span> |
+            </span>
+            <div class="col"></div>
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                    <a th:href="@{/logout}">Sign Out</a>
+                    <a th:href="@{/}">Home</a>
+                    </li>
+                </ul>
+       		</div>
+        </div>
+    </nav>
+</th:block>
+</body>
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js/}"></script>
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"></script>
+</html>

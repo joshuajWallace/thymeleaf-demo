@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org" 
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="utf-8">
+<title>Login</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}"/>
+<link rel="stylesheet" th:href="@{/css/login.css}"/>
+</head>
+<body class="text-center">
+	<form class="form-signin" th:action="@{/login}" method="POST">
+
+		<img class="mb-4"  src="../static/computer.png" th:src="@{/images/computer.png}" alt="Logo" width="72" height="72">
+		<div th:if="${param.error != null}" class="alert alert-danger" role="alert">
+			Invalid User Name or Password.
+		</div>
+
+		<div th:if="${param.logout != null}" class="alert alert-success" role="alert">
+			Successfully logged out.
+		</div>
+
+		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+		
+		<label for="inputEmail" class="sr-only">Email address</label>
+		
+		<input type="text" id="username" name="username" class="form-control" placeholder="User Name" required autofocus>
+		
+		<label for="inputPassword" class="sr-only">Password</label>
+		
+		<input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+		
+		<button class="btn btn-lg btn-primary btn-block" type="submit" name="login-submit" id="login-submit">Sign in</button>
+		<a class="btn btn-lg btn-secondary btn-block" type="button" th:href="@{/}">Cancel</a>
+
+	</form>
+</body>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script type="text/javascript" th:src="@{/webjars/jquery/3.5.1/jquery.min.js/}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"></script>
+</html>
