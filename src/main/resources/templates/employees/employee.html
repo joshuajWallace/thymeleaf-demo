@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en"  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}" >
 <head>
 <meta charset="utf-8">
 <title>Employee</title>
-<link rel="stylesheet" th:href="@{/css/stylesheet.css}"/>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
+<div layout:fragment="content" th:remove="tag">
 	<p th:text="'Employee id : ' + ${employee.id}"/>
 	<table class="table table-striped table-bordered">
 		<thead class="thead-dark">
@@ -24,5 +25,6 @@
 			</tr>
 		</tbody>
 	</table>
+</div>
 </body>
 </html>

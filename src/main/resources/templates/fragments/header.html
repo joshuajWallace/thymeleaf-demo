@@ -15,6 +15,7 @@
             <div class="container-fluid">
             <a th:href="@{/}">Home</a>
             <span class="text-white" sec:authorize="isAuthenticated()">
+            		<a th:href="@{/employees/list}">Employees</a>
                     | Logged user: <span sec:authentication="name"></span> |
                     Roles: <span sec:authentication="principal.authorities"></span> |
             </span>
